@@ -4,8 +4,13 @@
 #include <string.h>
 #include <iostream>
 
+#include "Form.hpp"
+
 #define MIN_GRADE	150
 #define MAX_GRADE	0
+
+class Form;
+
 
 class Bureaucrat
 {
@@ -24,6 +29,7 @@ class Bureaucrat
 		int getGrade(void) const;
 		void increment(void);
 		void decrement(void);
+		void signForm(Form &f);
 
 		class GradeTooHighException : public std::exception
 		{

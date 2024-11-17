@@ -2,12 +2,12 @@
 
 const char *Bureaucrat::GradeTooHighException::what() const noexcept
 {
-	return ("Grade too High!");
+	return ("(Bureaucrat) Grade too High!");
 }
 
 const char *Bureaucrat::GradeTooLowException::what() const noexcept
 {
-	return ("Grade too Low!");
+	return ("(Bureaucrat) Grade too Low!");
 }
 
 std::string Bureaucrat::getName(void) const
@@ -59,12 +59,25 @@ void Bureaucrat::decrement(void)
 	_grade++;
 }
 
+void Bureaucrat::signForm(Form &f)
+{
+	try
+	{
+		f.beSigned(*this);
+		std::cout << _name << " signed " << f.getName() << std::endl;
+	}
+	catch(std::exception &e)
+	{
+		std::cout << _name << " couldn't sign " << f.getName() << " because " << e.what() << std::endl;
+	}
+}
+
 Bureaucrat::~Bureaucrat()
 {
 }
 
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &Bureaucrat)
 {
-	os << Bureaucrat.getName() << "'s grade: " << Bureaucrat.getGrade();
+	os << Bureaucrat.getName() << " | grade: " << Bureaucrat.getGrade();
     return (os);
 }
