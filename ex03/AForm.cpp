@@ -6,7 +6,7 @@
 /*   By: tecker <tecker@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 12:54:46 by tecker            #+#    #+#             */
-/*   Updated: 2024/11/18 13:02:46 by tecker           ###   ########.fr       */
+/*   Updated: 2024/11/18 13:39:16 by tecker           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,10 @@ void AForm::beSigned(const Bureaucrat &b)
 {
 	if (_signed)
 		throw AForm::FormAlreadySignedException();
-	if (b.getGrade() > _grade_to_sign)
+	else if (b.getGrade() > _grade_to_sign)
 		throw AForm::GradeTooLowException();
-	_signed = 1;
+	else
+		_signed = 1;
 }
 
 const char *AForm::GradeTooHighException::what() const noexcept

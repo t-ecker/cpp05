@@ -6,7 +6,7 @@
 /*   By: tecker <tecker@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 12:54:35 by tecker            #+#    #+#             */
-/*   Updated: 2024/11/18 12:54:36 by tecker           ###   ########.fr       */
+/*   Updated: 2024/11/18 13:57:38 by tecker           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ std::string ShrubberyCreationForm::getTarget()	const
 
 void ShrubberyCreationForm::exec_form(void) const
 {
+	std::cout << "printed tree in " << _target + "_shrubbery" << std::endl;
 	std::ofstream fileW((_target + "_shrubbery"), std::ios::out | std::ios::trunc);
 	if (!fileW.is_open())
 	{

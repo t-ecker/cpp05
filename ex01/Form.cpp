@@ -6,7 +6,7 @@
 /*   By: tecker <tecker@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 12:49:01 by tecker            #+#    #+#             */
-/*   Updated: 2024/11/18 12:49:02 by tecker           ###   ########.fr       */
+/*   Updated: 2024/11/18 13:38:20 by tecker           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,8 @@ void Form::beSigned(const Bureaucrat &b)
 {
 	if (b.getGrade() > _grade_to_sign)
 		throw Form::GradeTooLowException();
-	_signed = 1;
+	else
+		_signed = 1;
 }
 
 const char *Form::GradeTooHighException::what() const noexcept

@@ -6,7 +6,7 @@
 /*   By: tecker <tecker@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 12:49:11 by tecker            #+#    #+#             */
-/*   Updated: 2024/11/18 12:49:12 by tecker           ###   ########.fr       */
+/*   Updated: 2024/11/18 13:34:43 by tecker           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int main(void)
 		std::cout << "creating f1" << std::endl;
         Form f1("fm1", 0, 0);
 		std::cout << "creating f2" << std::endl;
-        Form f2("fm2", 150, 150);
+        Form f2("fm2", 10, 10);
         std::cout << std::endl;
 
         std::cout << "  -Info-" << std::endl;
@@ -40,8 +40,8 @@ int main(void)
 
         std::cout << std::endl;
         
-        c.signForm(f1);
-        std::cout << f1 << std::endl;
+        c.signForm(f2);
+        std::cout << f2 << std::endl;
 
         std::cout << std::endl;
 
