@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tecker <tecker@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/18 12:53:41 by tecker            #+#    #+#             */
+/*   Updated: 2024/11/18 12:59:50 by tecker           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "AForm.hpp"
 
 AForm::AForm()
@@ -53,6 +65,8 @@ bool AForm::getSigned(void) const
 
 void AForm::beSigned(const Bureaucrat &b)
 {
+	if (_signed)
+		throw AForm::FormAlreadySignedException();
 	if (b.getGrade() > _grade_to_sign)
 		throw AForm::GradeTooLowException();
 	_signed = 1;
@@ -71,6 +85,11 @@ const char *AForm::GradeTooLowException::what() const noexcept
 const char *AForm::FormNotSignedException::what() const noexcept
 {
 	return ("(AForm) Form not signed");
+}
+
+const char *AForm::FormAlreadySignedException::what() const noexcept
+{
+	return ("(AForm) Form already signed");
 }
 
 std::ostream &operator<<(std::ostream &os, const AForm &AForm)

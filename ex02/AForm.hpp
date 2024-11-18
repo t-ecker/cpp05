@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tecker <tecker@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/18 12:53:46 by tecker            #+#    #+#             */
+/*   Updated: 2024/11/18 12:59:30 by tecker           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef AFORM_HPP
 #define AFORM_HPP
 
@@ -41,6 +53,12 @@ class AForm
 		};
 
 		class FormNotSignedException : public std::exception
+		{
+			public:
+				const char *what() const noexcept;
+		};
+
+		class FormAlreadySignedException : public std::exception
 		{
 			public:
 				const char *what() const noexcept;
